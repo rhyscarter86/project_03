@@ -1,0 +1,468 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2577
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\fswiss\fcharset0 Helvetica;\f2\fnil\fcharset0 Verdana-Bold;
+\f3\fnil\fcharset0 Verdana;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;\red193\green193\blue193;
+\red237\green237\blue237;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c100000;\cssrgb\c80000\c80000\c80000;
+\cssrgb\c94510\c94510\c94510;}
+\margl1440\margr1440\vieww25680\viewh18760\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs28 \cf0 # Part 1: W3Schools SQL Lab 
+\f1\b0\fs24 \
+\
+*Introductory level SQL*\
+\
+--\
+\
+This challenge uses the [W3Schools SQL playground](http://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all). Please add solutions to this markdown file and submit.\
+\
+1. Which customers are from the UK?\
+\
+***CustomerName***\\\
+*Around the Horn\\\
+B's Beverages\\\
+Consolidated Holdings\\\
+Eastern Connection\\\
+Island Trading\\\
+North/South\\\
+Seven Seas Imports*\
+\
+2. What is the name of the customer who has the most orders?\
+\
+***CustomerID	CustomerName	COUNT(*)***\\\
+*20	Ernst Handel	10*\
+\
+3. Which supplier has the highest average product price?\
+\
+SELECT Products.SupplierID, Suppliers.SupplierName, AVG(products.Price)\\\
+FROM products\\\
+INNER JOIN suppliers ON products.SupplierID=suppliers.SupplierID\\ \
+GROUP BY Products.SupplierID, Suppliers.SupplierName\\\
+ORDER BY AVG(products.Price) DESC;\
+\
+***SupplierID	SupplierName	AVG(products.Price)***\\\
+*18	Aux joyeux eccl\'e9siastiques	140.75* \
+\
+4. How many different countries are all the customers from? (*Hint:* consider [DISTINCT](http://www.w3schools.com/sql/sql_distinct.asp).)\
+\
+***SELECT COUNT(DISTINCT Country) FROM Customers;***\\\
+*21*\
+\
+5. What category appears in the most orders?\
+\
+SELECT products.categoryID,categories.categoryname,COUNT(categories.categoryname) \
+FROM ((orderdetails\
+INNER JOIN products ON orderdetails.productID=products.productID)\
+INNER JOIN Categories ON products.categoryID = Categories.categoryID)\
+group by categoryname\
+ORDER BY COUNT(categories.categoryname) DESC;\
+\
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrt\brdrs\brdrw20\brdrcf4 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat3 \clwWidth2881\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat3 \clwWidth3563\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat3 \clwWidth8075\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f2\b\fs28 \cf2 \expnd0\expndtw0\kerning0
+CategoryID\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 CategoryName\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 COUNT(categories.categoryname)\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrb\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat5 \clwWidth2881\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat5 \clwWidth3563\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat5 \clwWidth8075\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b0 \cf2 4\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Dairy Products\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 100\cell \lastrow\row
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+6. What was the total cost for each order?\
+\
+SELECT orderdetails.orderID, \
+SUM(orderdetails.quantity*products.price) as OrderCost\
+FROM orderdetails\
+INNER JOIN products ON orderdetails.productID = products.productID\
+GROUP BY orderdetails.orderID;\
+\
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrt\brdrs\brdrw20\brdrcf4 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat3 \clwWidth4838\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat3 \clwWidth10001\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f2\b\fs28 \cf2 \expnd0\expndtw0\kerning0
+OrderID\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 OrderCost\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat5 \clwWidth4838\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat5 \clwWidth10001\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b0 \cf2 10248\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 566\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat3 \clwWidth4838\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat3 \clwWidth10001\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 10249\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 2329.25\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat5 \clwWidth4838\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat5 \clwWidth10001\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 10250\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 2267.25\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat3 \clwWidth4838\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat3 \clwWidth10001\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 10251\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 839.5\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat5 \clwWidth4838\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat5 \clwWidth10001\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 [Continues\'85]\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrb\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat3 \clwWidth10001\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat3 \clwWidth10001\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\cell
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \cell \lastrow\row
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\
+7. Which employee made the most sales (by total price)?\
+\
+SELECT orders.employeeID,employees.firstname,employees.lastname,SUM(orderdetails.quantity*products.price) as OrderCost\
+FROM (((orderdetails\
+INNER JOIN products ON orderdetails.productID = products.productID)\
+INNER JOIN orders ON orderdetails.orderID = orders.orderID)\
+INNER JOIN employees ON employees.employeeID = orders.employeeID)\
+GROUP BY orders.employeeID\
+ORDER BY ordercost desc;\
+\
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrt\brdrs\brdrw20\brdrcf4 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat3 \clwWidth3399\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2160
+\clvertalt \clcbpat3 \clwWidth2813\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat3 \clwWidth2730\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx6480
+\clvertalt \clcbpat3 \clwWidth5257\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f2\b\fs28 \cf2 \expnd0\expndtw0\kerning0
+EmployeeID\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 FirstName\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 LastName\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 OrderCost\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrb\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat5 \clwWidth3399\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2160
+\clvertalt \clcbpat5 \clwWidth2813\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat5 \clwWidth2730\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx6480
+\clvertalt \clcbpat5 \clwWidth5257\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b0 \cf2 4\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Margaret\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Peacock\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 105696.49999999999\cell \lastrow\row
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+8. Which employees have BS degrees? (*Hint:* look at the [LIKE](http://www.w3schools.com/sql/sql_like.asp) operator.)\
+\
+SELECT employeeID, lastname, firstname\
+FROM employees\
+WHERE notes LIKE '%bs%';\
+\
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrt\brdrs\brdrw20\brdrcf4 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat3 \clwWidth5657\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat3 \clwWidth4495\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat3 \clwWidth4627\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f2\b\fs28 \cf2 \expnd0\expndtw0\kerning0
+EmployeeID\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 LastName\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 FirstName\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat5 \clwWidth5657\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat5 \clwWidth4495\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat5 \clwWidth4627\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b0 \cf2 3\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Leverling\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Janet\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrb\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat3 \clwWidth5657\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat3 \clwWidth4495\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat3 \clwWidth4627\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 5\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Buchanan\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Steven\cell \lastrow\row
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\
+9. Which supplier of three or more products has the highest average product price? (*Hint:* look at the [HAVING](http://www.w3schools.com/sql/sql_having.asp) operator.)\
+\
+SELECT suppliers.suppliername, COUNT(products.productname) AS ProductCount,AVG(products.Price) AS AveragePrice\
+FROM products\
+INNER JOIN suppliers ON products.SupplierID=suppliers.SupplierID\
+GROUP BY suppliers.suppliername\
+HAVING COUNT(products.productname) >= 3\
+ORDER BY AVG(products.Price) DESC;\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrt\brdrs\brdrw20\brdrcf4 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat3 \clwWidth8694\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat3 \clwWidth3793\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat3 \clwWidth5432\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f2\b\fs28 \cf2 \expnd0\expndtw0\kerning0
+SupplierName\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 ProductCount\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 AveragePrice\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat5 \clwWidth8694\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat5 \clwWidth3793\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat5 \clwWidth5432\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b0 \cf2 Tokyo Traders\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 3\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 46\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat3 \clwWidth8694\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat3 \clwWidth3793\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat3 \clwWidth5432\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Plutzer Lebensmittelgro\'dfm\'e4rkte AG\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 5\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 44.678000000000004\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat5 \clwWidth8694\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat5 \clwWidth3793\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat5 \clwWidth5432\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Pavlova, Ltd.\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 5\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 35.57\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat3 \clwWidth8694\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat3 \clwWidth3793\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat3 \clwWidth5432\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Grandma Kelly's Homestead\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 3\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 31.666666666666668\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat5 \clwWidth8694\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat5 \clwWidth3793\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat5 \clwWidth5432\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 G'day, Mate\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 3\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 30.933333333333334\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat3 \clwWidth8694\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat3 \clwWidth3793\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat3 \clwWidth5432\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Heli S\'fc\'dfwaren GmbH & Co. KG\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 3\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 29.709999999999997\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat5 \clwWidth8694\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat5 \clwWidth3793\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat5 \clwWidth5432\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Specialty Biscuits, Ltd.\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 4\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 28.175\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat3 \clwWidth8694\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat3 \clwWidth3793\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat3 \clwWidth5432\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Leka Trading\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 3\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 26.483333333333334\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat5 \clwWidth8694\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat5 \clwWidth3793\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat5 \clwWidth5432\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Formaggi Fortini s.r.l.\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 3\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 26.433333333333334\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat3 \clwWidth8694\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat3 \clwWidth3793\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat3 \clwWidth5432\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 New Orleans Cajun Delights\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 4\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 20.35\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat5 \clwWidth8694\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat5 \clwWidth3793\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat5 \clwWidth5432\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Svensk Sj\'f6f\'f6da AB\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 3\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 20\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat3 \clwWidth8694\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat3 \clwWidth3793\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat3 \clwWidth5432\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Norske Meierier\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 3\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 20\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat5 \clwWidth8694\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat5 \clwWidth3793\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat5 \clwWidth5432\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Karkki Oy\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 3\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 18.083333333333332\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat3 \clwWidth8694\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat3 \clwWidth3793\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat3 \clwWidth5432\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Exotic Liquid\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 3\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 15.666666666666666\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat5 \clwWidth8694\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat5 \clwWidth3793\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat5 \clwWidth5432\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Bigfoot Breweries\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 3\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 15.333333333333334\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrs\brdrw20\brdrcf4 \trbrdrb\brdrs\brdrw20\brdrcf4 \trbrdrr\brdrs\brdrw20\brdrcf4 
+\clvertalt \clcbpat3 \clwWidth8694\clftsWidth3 \clheight20 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl320 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat3 \clwWidth3793\clftsWidth3 \clheight20 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat3 \clwWidth5432\clftsWidth3 \clheight20 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Mayumi's\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 3\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 14.916666666666666\cell \lastrow\row
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 ############################################################################################################################################################\
+############################################################################################################################################################\
+\
+
+\f0\b\fs28 # Part 2: W3Schools SQL Lab 
+\f1\b0\fs24 \
+\
+Asdfasdf\
+\
+\
+\
+\
+\
+Adsfasdf}
