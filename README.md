@@ -4,9 +4,13 @@
 
 This effort combines large scale data analysis (over 500k records and more than 400 observation attributes) with various classification modeling techniques, including K-Nearest-Neighbors (KNN), Logistic Regression, and XGBoost, to analyze and identify the roughly 3% of fraudulent transactions present in the data set. 
 
-## Description, Data Used, Overall Outcome
+## Description and Data Used
 
-Data comes from the Kaggle Competition [Can you detect fraud from customer transactions](https://www.kaggle.com/c/ieee-fraud-detection), sponsored by the IEEE Computational Intelligence Society (IEEE-CIS) and Vesta Corporation, the the world’s leading payment service company.  The data includes a mix of some categorical, but mostly numeric, fields covering information on the transaction (e.g. what type of card it was that was used, when it was used, etc.) and additional information on the "identity" associated with the card and the specific transaction, including IP addresses, information on the device used for the transaction, etc. Although there was a significant amount of data available, certain limitations, including data column titles being masked due to privacy restrictions, made interpretation of particular elements more challenging than others. Additionally, a number of fields had significant missing data, and were removed accordingly. *Ultimately using a dataset comprised of roughly 200 features, an XGBoost-based classifier capable of ROC AUC 94% was designed, with precision and recall at (for example, using a fraud probability threshold of greater than 30%) 80% and nearly 60%, respectively.* 
+Data comes from the Kaggle Competition [Can you detect fraud from customer transactions](https://www.kaggle.com/c/ieee-fraud-detection), sponsored by the IEEE Computational Intelligence Society (IEEE-CIS) and Vesta Corporation, the the world’s leading payment service company.  The data includes a mix of some categorical, but mostly numeric, fields covering information on the transaction (e.g. what type of card it was that was used, when it was used, etc.) and additional information on the "identity" associated with the card and the specific transaction, including IP addresses, information on the device used for the transaction, etc. Although there was a significant amount of data available, certain limitations, including data column titles being masked due to privacy restrictions, made interpretation of particular elements more challenging than others. Additionally, a number of fields had significant missing data, and were removed accordingly (see below). 
+
+## Overall Outcome
+
+*Ultimately using a dataset comprised of roughly 200 features, an XGBoost-based classifier capable of ROC AUC 94% was designed, with precision and recall at (for example, using a fraud probability threshold of greater than 30%) 80% and nearly 60%, respectively.* 
 
 ## Features and Target
 
