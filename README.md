@@ -35,7 +35,7 @@ Data comes from the Kaggle Competition [Can you detect fraud from customer trans
 * Project_03_Logistic_Regression: Workbook for logistic regression modeling
 * Project_03_KNN: Workbook for KNN modeling
 * Project_03_XGBoost_Baseline: Workbook for XGBoost modeling
-* Project_03_SQL_Challenges (various): Markdown and Python Notebooks for SQL challenges
+* Project_03_SQL_Challenges (various): Markdown and Python Notebooks for SQL challenges (NOTE: Additional Updates still pending to challenge q's as of Sunday, 2/14)
 
 ## Analysis Limitations
 
